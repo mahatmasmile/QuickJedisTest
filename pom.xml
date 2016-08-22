@@ -5,6 +5,8 @@
   <version>0.0.1-SNAPSHOT</version>
   <build>
     <sourceDirectory>src</sourceDirectory>
+    <testSourceDirectory>src</testSourceDirectory>
+    <testOutputDirectory>target\classes</testOutputDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
