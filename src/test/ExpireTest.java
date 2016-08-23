@@ -1,0 +1,39 @@
+package test;
+
+import org.junit.Test;
+
+import junit.framework.Assert;
+
+public class ExpireTest extends MyTest {
+
+	public ExpireTest(String name) {
+		super(name);
+		System.out.println("ExpireTest");
+	}
+
+	public ExpireTest() {
+	}
+
+	@Test
+	public void testExpire() throws InterruptedException {
+		System.out.println("testExpire");
+		boolean res = RedisDefined.TestRedis.Set(key, userInfo);
+		Assert.assertTrue(res);
+
+		boolean expireRes = RedisDefined.TestRedis.Expire(key, 10);
+		Assert.assertTrue(expireRes);
+
+		Thread.sleep(9 * 1000);
+		UserInfo userInfoTmp = RedisDefined.TestRedis.Get(key, UserInfo.class);
+		Assert.assertNotNull(userInfoTmp);
+		Assert.assertEquals(userInfoTmp.getAge(), 18);
+
+		boolean res1 = RedisDefined.TestRedis.Set(key, userInfo);
+		Assert.assertTrue(res1);
+		boolean expireRes1 = RedisDefined.TestRedis.Expire(key, 10);
+		Assert.assertTrue(expireRes1);
+		Thread.sleep(10 * 1000);
+		UserInfo userInfoTmp1 = RedisDefined.TestRedis.Get(key, UserInfo.class);
+		Assert.assertNull(userInfoTmp1);
+	}
+}

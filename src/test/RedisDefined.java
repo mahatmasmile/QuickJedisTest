@@ -1,7 +1,7 @@
 package test;
 
 import org.quickjedis.core.CacheFactory;
-import org.quickjedis.impl.Redis;
+import org.quickjedis.core.Redis;
 
 public class RedisDefined {
 	public static Redis TestRedis;

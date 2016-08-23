@@ -4,25 +4,17 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Test;
 import org.quickjedis.utils.ConvertHelper;
 import org.quickjedis.utils.JsonHelper;
 
 import junit.framework.Assert;
-import junit.framework.TestCase;
 
-public class SetGetTest extends TestCase {
-
-	private static final String key = "wsy.test";
-	private static UserInfo userInfo;
+public class SetGetTest extends MyTest {
 
 	public SetGetTest(String name) {
 		super(name);
 		System.out.println("SetGetTest(name)");
-
-		userInfo = new UserInfo();
-		userInfo.setName("mahatma");
-		userInfo.setAge(18);
-		userInfo.setIsMale(true);
 	}
 
 	public SetGetTest() {
@@ -30,6 +22,7 @@ public class SetGetTest extends TestCase {
 		System.out.println("SetGetTest");
 	}
 
+	@Test
 	public void testString() {
 		System.out.println("testString");
 
@@ -44,6 +37,7 @@ public class SetGetTest extends TestCase {
 		Assert.assertEquals(18, userInfoTmp.getAge());
 	}
 
+	@Test
 	public void testBytes() throws UnsupportedEncodingException {
 		System.out.println("testBytes");
 		byte[] bytes = ConvertHelper.StringToBytes(JsonHelper.toJson(userInfo));
@@ -57,6 +51,7 @@ public class SetGetTest extends TestCase {
 		Assert.assertEquals(18, userInfoTmp.getAge());
 	}
 
+	@Test
 	public void testObject() {
 		System.out.println("testObject");
 		Boolean bl = RedisDefined.TestRedis.Set(key, userInfo);
@@ -66,6 +61,7 @@ public class SetGetTest extends TestCase {
 		Assert.assertEquals(18, userInfo.getAge());
 	}
 
+	@Test
 	public void testList() {
 		System.out.println("testList");
 		List<UserInfo> userLst = new ArrayList<UserInfo>();
