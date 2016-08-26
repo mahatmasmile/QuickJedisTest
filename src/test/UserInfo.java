@@ -6,6 +6,17 @@ public class UserInfo {
 	private int age;
 	private Boolean isMale;
 
+	public UserInfo(String name, int age, Boolean ismale) {
+		this.name = name;
+		this.age = age;
+		this.isMale = ismale;
+		System.out.println("UserInfo Create");
+	}
+
+	public UserInfo() {
+
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -26,8 +37,8 @@ public class UserInfo {
 		return isMale;
 	}
 
-	public void setIsMale(Boolean isMale) {
-		this.isMale = isMale;
+	public void setIsMale(Boolean ismale) {
+		this.isMale = ismale;
 	}
 
 }

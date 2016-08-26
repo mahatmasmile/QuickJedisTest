@@ -20,10 +20,7 @@ public class JsonHelperTest extends TestCase {
 	public JsonHelperTest(String name) {
 		super(name);
 		System.out.println("JsonHelperTest(name)");
-		userInfo = new UserInfo();
-		userInfo.setAge(18);
-		userInfo.setName("mahatma");
-		userInfo.setIsMale(true);
+		userInfo = new UserInfo("mahatma", 18, true);
 	}
 
 	public void testArray() {

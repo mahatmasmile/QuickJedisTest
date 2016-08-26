@@ -32,7 +32,7 @@ public class SetGetTest extends MyTest {
 
 		String jsonStrTmp = RedisDefined.TestRedis.GetString(key);
 		Assert.assertNotNull(jsonStrTmp);
-		UserInfo userInfoTmp = JsonHelper.toObject(jsonStrTmp, UserInfo.class);
+		UserInfo userInfoTmp = JsonHelper.toObject(jsonStrTmp, test.UserInfo.class);
 		Assert.assertNotNull(userInfoTmp);
 		Assert.assertEquals(18, userInfoTmp.getAge());
 	}
