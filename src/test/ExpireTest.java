@@ -14,6 +14,10 @@ public class ExpireTest extends MyTest {
 	public ExpireTest() {
 	}
 
+	public void testAnnotation() {
+
+	}
+
 	@Test
 	public void testExpire() throws InterruptedException {
 		System.out.println("testExpire");
