@@ -32,7 +32,7 @@ public class SetGetTest extends MyTest {
 
 		String jsonStrTmp = RedisDefined.TestRedis.GetString(key);
 		Assert.assertNotNull(jsonStrTmp);
-		UserInfo userInfoTmp = JsonHelper.toObject(jsonStrTmp, test.UserInfo.class);
+		UserInfo userInfoTmp = JsonHelper.toObject(jsonStrTmp, UserInfo.class);
 		Assert.assertNotNull(userInfoTmp);
 		Assert.assertEquals(18, userInfoTmp.getAge());
 	}
@@ -41,7 +41,7 @@ public class SetGetTest extends MyTest {
 	public void testBytes() throws UnsupportedEncodingException {
 		System.out.println("testBytes");
 		byte[] bytes = ConvertHelper.StringToBytes(JsonHelper.toJson(userInfo));
-		Boolean bl = RedisDefined.TestRedis.Set(key, bytes);
+		boolean bl = RedisDefined.TestRedis.Set(key, bytes);
 		Assert.assertTrue(bl);
 		byte[] userInfoBytes = RedisDefined.TestRedis.GetBytes(key);
 		Assert.assertNotNull(userInfoBytes);
@@ -54,7 +54,7 @@ public class SetGetTest extends MyTest {
 	@Test
 	public void testObject() {
 		System.out.println("testObject");
-		Boolean bl = RedisDefined.TestRedis.Set(key, userInfo);
+		boolean bl = RedisDefined.TestRedis.Set(key, userInfo);
 		Assert.assertTrue(bl);
 		UserInfo userInfo = RedisDefined.TestRedis.Get(key, UserInfo.class);
 		Assert.assertNotNull(userInfo);
@@ -64,6 +64,7 @@ public class SetGetTest extends MyTest {
 	@Test
 	public void testList() {
 		System.out.println("testList");
+
 		List<UserInfo> userLst = new ArrayList<UserInfo>();
 		userLst.add(userInfo);
 		userLst.add(userInfo);
@@ -73,4 +74,5 @@ public class SetGetTest extends MyTest {
 		Assert.assertNotNull(userLstTmp);
 		Assert.assertFalse(userLstTmp.isEmpty());
 	}
+
 }

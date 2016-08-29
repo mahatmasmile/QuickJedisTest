@@ -17,6 +17,7 @@ public class ExpireTest extends MyTest {
 	@Test
 	public void testExpire() throws InterruptedException {
 		System.out.println("testExpire");
+
 		boolean res = RedisDefined.TestRedis.Set(key, userInfo);
 		Assert.assertTrue(res);
 
