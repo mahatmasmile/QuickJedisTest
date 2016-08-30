@@ -1,5 +1,7 @@
 package test;
 
+import org.quickjedis.utils.ConvertHelper;
+
 import junit.framework.TestCase;
 
 public class ValueTest extends TestCase {
@@ -16,29 +18,29 @@ public class ValueTest extends TestCase {
 	public void testDefaultVal() {
 		System.out.println("testDefaultVal");
 		try {
-			System.out.println("int:" + int.class.cast("0"));
-			System.out.println("Integer:" + Integer.class.cast(0));
-
-			// System.out.println("long:" + (long) (0));
-			System.out.println("Long:" + Long.class.cast("0"));
-
-			System.out.println("byte:" + (byte) (0));
-			// System.out.println("Byte:" + (Byte) (0));
-
-			System.out.println("short:" + (short) (0));
-			// System.out.println("Short:" + Short.class.cast(0));
-
-			System.out.println("float:" + (float) (0));
-			// System.out.println("Float:" + Float.class.cast(0));
-
-			System.out.println("double:" + (double) (0));
-			// System.out.println("Double:" + Double.class.cast(0));
-
-			System.out.println("char:" + (char) (0));
-			// System.out.println("Char:" + Charset.class.cast(0));
-
-			System.out.println("boolean:" + (boolean) (false));
-			// System.out.println("Boolean:" + Boolean.class.cast(0));
+			System.out.println("int:" + ConvertHelper.GetDefaultVal(int.class));
+			System.out.println("Integer:" + ConvertHelper.GetDefaultVal(Integer.class));
+			//
+			System.out.println("long:" + ConvertHelper.GetDefaultVal(long.class));
+			System.out.println("Long:" + ConvertHelper.GetDefaultVal(Long.class));
+			//
+			System.out.println("byte:" + ConvertHelper.GetDefaultVal(byte.class));
+			System.out.println("Byte:" + ConvertHelper.GetDefaultVal(Byte.class));
+			//
+			System.out.println("short:" + ConvertHelper.GetDefaultVal(short.class));
+			System.out.println("Short:" + ConvertHelper.GetDefaultVal(Short.class));
+			//
+			System.out.println("float:" + ConvertHelper.GetDefaultVal(float.class));
+			System.out.println("Float:" + ConvertHelper.GetDefaultVal(Float.class));
+			//
+			System.out.println("double:" + ConvertHelper.GetDefaultVal(double.class));
+			System.out.println("Double:" + ConvertHelper.GetDefaultVal(Double.class));
+			//
+			System.out.println("char:" + ConvertHelper.GetDefaultVal(char.class));
+			System.out.println("Character:" + ConvertHelper.GetDefaultVal(Character.class));
+			//
+			System.out.println("boolean:" + ConvertHelper.GetDefaultVal(boolean.class));
+			System.out.println("Boolean:" + ConvertHelper.GetDefaultVal(Boolean.class));
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
