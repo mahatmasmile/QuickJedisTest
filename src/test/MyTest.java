@@ -1,6 +1,7 @@
 package test;
 
 import junit.framework.TestCase;
+import test.UserInfo;
 
 public class MyTest extends TestCase {
 	public static final String key = "mahatma.test";
